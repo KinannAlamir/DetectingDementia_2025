@@ -1,0 +1,36 @@
+[project]
+name = "dementia-detection"
+version = "0.1.0"
+description = "ML-based dementia detection from DementiaBank transcripts"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pandas>=2.2.0",
+    "scikit-learn>=1.5.0",
+    "numpy>=1.26.0",
+]
+
+[project.scripts]
+detect-dementia = "dementia_detection.main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "B", "UP"]
+ignore = ["E501", "N803", "N806"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]
+
+[tool.uv]
+dev-dependencies = [
+    "ruff>=0.6.0",
+    "pytest>=8.0.0",
+    "pytest-cov>=4.1.0",
+]
