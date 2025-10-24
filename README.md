@@ -4,14 +4,15 @@ ML-based dementia detection from DementiaBank transcripts using 3 classification
 
 ## Features
 
-- **3 ML Models**: Logistic Regression, Random Forest, and SVM
+- **4 ML Approaches**: Logistic Regression, Random Forest, SVM, and RoBERTa Transformer
 - **TF-IDF Features**: Extracted from transcript text
 - **Linguistic Features**: Word count, hesitations, repetitions, pauses
 - **Hyperparameter Tuning**: GridSearchCV optimization
-- **Ensemble Model**: Soft voting classifier combining all models
+- **Ensemble Model**: Soft voting classifier combining traditional ML models
+- **Deep Learning**: Fine-tuned RoBERTa transformer for state-of-the-art performance
 - **Clean Architecture**: Modular, pythonic design with minimal code
 - **Ruff Compliant**: Passes all linting checks
-- **Comprehensive Tests**: 22+ pytest tests with 100% coverage on core modules
+- **Comprehensive Tests**: 30+ pytest tests with high coverage
 
 ## Installation
 
@@ -29,8 +30,21 @@ uv pip install -e .
 ## Usage
 
 ```bash
-# Run the detection pipeline
+# Run the traditional ML pipeline (default)
 uv run detect-dementia
+
+# Run with XLM-RoBERTa transformer (uses local model by default)
+uv run detect-dementia --transformer
+# or
+uv run detect-dementia -t
+
+# Run with custom local model path
+uv run detect-dementia --transformer --model-path /path/to/your/model
+# or
+uv run detect-dementia -t -m /path/to/your/model
+
+# Force download from Hugging Face instead of using local
+uv run detect-dementia --transformer --download-model
 
 # Or run directly
 uv run python -m dementia_detection.main
@@ -40,10 +54,12 @@ uv run python -m dementia_detection.main
 
 ```
 src/dementia_detection/
-├── __init__.py     # Package initialization
-├── data.py         # Data loading and feature extraction
-├── models.py       # ML model definitions
-└── main.py         # Main entry point
+├── __init__.py        # Package initialization
+├── data.py            # Data loading and feature extraction
+├── features.py        # Linguistic feature engineering
+├── models.py          # Traditional ML models
+├── transformer.py     # RoBERTa transformer model
+└── main.py            # Main entry point
 ```
 
 ## Data
@@ -80,8 +96,18 @@ uv run pytest -v
 
 ## Models
 
+### Traditional ML (Fast)
 1. **Logistic Regression**: Linear classifier with L2 regularization
 2. **Random Forest**: Ensemble of 100 decision trees
 3. **SVM**: Support Vector Machine with RBF kernel
+4. **Ensemble**: Soft voting combining all three
+
+### Deep Learning (Best Performance)
+5. **XLM-RoBERTa Transformer**: Fine-tuned pre-trained multilingual model
+   - Uses local `xlm-roberta-base` by default (no download needed)
+   - Path: `/Users/alamir/Documents/Travail/perso/Programmation/xlm-roberta-base`
+   - Trained for 3 epochs with learning rate 2e-5
+   - Best for capturing semantic patterns in transcripts
+   - Supports 100+ languages (though this dataset is English)
 
 All models are evaluated using accuracy, F1 score, and classification reports.

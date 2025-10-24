@@ -10,9 +10,7 @@ from dementia_detection.data import load_data, prepare_features, split_data
 def test_load_data(tmp_path):
     """Test data loading from CSV files."""
     # Create temporary CSV files
-    control = pd.DataFrame(
-        {"Transcript": ["Control text 1", "Control text 2"], "Category": [0, 0]}
-    )
+    control = pd.DataFrame({"Transcript": ["Control text 1", "Control text 2"], "Category": [0, 0]})
     dementia = pd.DataFrame(
         {"Transcript": ["Dementia text 1", "Dementia text 2"], "Category": [1, 1]}
     )
@@ -75,14 +73,10 @@ def test_split_data():
 
 def test_prepare_features_with_missing_values():
     """Test feature preparation handles missing values."""
-    train_df = pd.DataFrame(
-        {"Transcript": ["Valid text", None, np.nan, ""], "label": [0, 1, 0, 1]}
-    )
+    train_df = pd.DataFrame({"Transcript": ["Valid text", None, np.nan, ""], "label": [0, 1, 0, 1]})
     test_df = pd.DataFrame({"Transcript": [None, "Valid"], "Category": [0, 1]})
 
-    X_train, y_train, X_test, y_test, _ = prepare_features(
-        train_df, test_df, max_features=5
-    )
+    X_train, y_train, X_test, y_test, _ = prepare_features(train_df, test_df, max_features=5)
 
     # Should not raise errors
     assert X_train.shape[0] == 4

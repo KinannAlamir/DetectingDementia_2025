@@ -8,6 +8,10 @@ dependencies = [
     "pandas>=2.2.0",
     "scikit-learn>=1.5.0",
     "numpy>=1.26.0",
+    "transformers>=4.40.0",
+    "torch>=2.0.0",
+    "datasets>=2.19.0",
+    "accelerate>=0.26.0",
 ]
 
 [project.scripts]
@@ -27,6 +31,11 @@ ignore = ["E501", "N803", "N806"]
 
 [tool.ruff.lint.per-file-ignores]
 "__init__.py" = ["F401"]
+
+[tool.pytest.ini_options]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+]
 
 [tool.uv]
 dev-dependencies = [
