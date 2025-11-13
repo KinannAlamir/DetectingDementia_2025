@@ -4,6 +4,20 @@ version = "0.1.0"
 description = "ML-based dementia detection from DementiaBank transcripts"
 readme = "README.md"
 requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [
+    {name = "Kinann Alamir", email = "kinann.alamir@example.com"}
+]
+keywords = ["machine-learning", "nlp", "dementia-detection", "healthcare", "transformers"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
 dependencies = [
     "pandas>=2.2.0",
     "scikit-learn>=1.5.0",
@@ -13,6 +27,11 @@ dependencies = [
     "datasets>=2.19.0",
     "accelerate>=0.26.0",
 ]
+
+[project.urls]
+Homepage = "https://github.com/KinannAlamir/DetectingDementia_2025"
+Repository = "https://github.com/KinannAlamir/DetectingDementia_2025"
+Issues = "https://github.com/KinannAlamir/DetectingDementia_2025/issues"
 
 [project.scripts]
 detect-dementia = "dementia_detection.main:main"
