@@ -72,6 +72,11 @@ checkpoints/
 .env.local
 .env.*.local
 .webui_secret_key
+data/.webui_secret_key
 
 # Large model files (download separately)
 data/xlm-roberta-base/
+
+# Personal workflow files
+TODO.md
+GITHUB_CHECKLIST.md
