@@ -21,13 +21,13 @@ uv run detect-dementia -t
 That's it! No need to specify the path - it's already configured.
 
 ## Model Files Present
-✅ config.json
-✅ pytorch_model.bin (1.1 GB)
-✅ tokenizer.json
-✅ tokenizer_config.json
-✅ sentencepiece.bpe.model
-✅ model.safetensors
-✅ All additional formats (ONNX, TensorFlow, Flax)
+- config.json
+- pytorch_model.bin (1.1 GB)
+- tokenizer.json
+- tokenizer_config.json
+- sentencepiece.bpe.model
+- model.safetensors
+- All additional formats (ONNX, TensorFlow, Flax)
 
 ## Expected Behavior
 When you run with `-t`, you'll see:

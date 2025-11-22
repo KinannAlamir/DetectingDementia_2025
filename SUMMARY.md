@@ -22,12 +22,12 @@ DetectingDementia_2025/
 ## Total Code: ~84 lines
 
 ## Features
-✅ UV package manager with pyproject.toml
-✅ Ruff linter passes (all checks green)
-✅ 3 ML methods: Logistic Regression, Random Forest, SVM
-✅ TF-IDF feature extraction (500 features)
-✅ Clean pythonic code with type hints
-✅ Modular architecture
+- UV package manager with pyproject.toml
+- Ruff linter passes (all checks green)
+- 3 ML methods: Logistic Regression, Random Forest, SVM
+- TF-IDF feature extraction (500 features)
+- Clean pythonic code with type hints
+- Modular architecture
 
 ## Results
 - **Best Model**: Random Forest (81.82% accuracy)
